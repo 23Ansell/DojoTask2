@@ -73,6 +73,7 @@ footer .list-inline-item a:hover {
 .navbar-nav .nav-link:hover {
     text-decoration: underline;
 }
+
 * {
     color: #fff !important;
     margin: 0;

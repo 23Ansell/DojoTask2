@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojo Website</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> <!--Credit to bdos-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"> <!--Credit to bdos-->
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">Coding Dojo</a>
+        <div class="collapse navbar-collapse">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="/about">About Us</a>
+                <a class="nav-item nav-link" href="/booking">Booking</a>
+                <a class="nav-item nav-link" href="/courses">Courses</a>
+                <a class="nav-item nav-link" href="/instructors">Instructors</a>
+            </div>
+        </div>
+        <div class="navbar-collapse collapse order-3 dual-collapse2">
+            <ul class="navbar-nav ml-auto">
+                {% if is_logged_in() %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Session: {{ session['username'] }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/account">Account</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">Login</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+    <footer>
+        <div class="container bg-dark">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; 2022 Coding Dojo. All rights reserved.</p>
+                </div>
+                <div class="col-md-6">
+                    <ul class="list-inline text-md-right">
+                        <li class="list-inline-item"><a href="/privacy">Privacy Policy</a></li>
+                        <li class="list-inline-item"><a href="/terms">Terms of Service</a></li>
+                        <li class="list-inline-item"><a href="/contact">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+</body>
+</html>

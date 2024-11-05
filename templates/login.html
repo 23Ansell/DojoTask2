@@ -1,7 +1,24 @@
 {% extends "base.html" %}
 
-{% block title %} login {% endblock %}
+{% block title %} Login {% endblock %}
 
 {% block content %}
-
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-4">
+            <div class="login-box">
+                <h2>Login</h2>
+                <form method="POST">
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" required class="form-control" placeholder="Enter email">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="password" name="password" required class="form-control" placeholder="Enter password">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

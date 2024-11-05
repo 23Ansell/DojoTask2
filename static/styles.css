@@ -8,6 +8,31 @@ main {
     flex: 1;
 }
 
+.login-box {
+    background-color: #5A6169;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-top: 150px; 
+}
+
+.btn-block {
+    width: 100%;
+    display: block;;
+}
+
+.btn-primary {
+    background-color: darkgray !important;
+    border-color: darkgray !important; 
+    box-shadow: none !important; 
+}
+
+.btn-primary:focus, .btn-primary:active {
+    outline: none !important; 
+    box-shadow: none !important; 
+}
+
 footer {
     position: fixed;
     bottom: 0;

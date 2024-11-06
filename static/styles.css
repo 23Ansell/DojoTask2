@@ -9,11 +9,9 @@ main {
 }
 
 .login-box {
-    background-color: #5A6169;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
     margin-top: 150px; 
 }
 
@@ -23,14 +21,49 @@ main {
 }
 
 .btn-primary {
-    background-color: darkgray !important;
-    border-color: darkgray !important; 
+    background-color: #5A6169 !important;
+    border-color: #5A6169 !important; 
     box-shadow: none !important; 
 }
 
 .btn-primary:focus, .btn-primary:active {
     outline: none !important; 
     box-shadow: none !important; 
+}
+
+.form-inline-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.form-label {
+    width: 100px;
+    text-align: left;
+    color: #ffffff;
+}
+
+.form-control {
+    color: #000000 !important;
+}
+
+.input-group {
+    position: relative;
+    width: 100%;
+}
+
+.input-group input {
+    width: 100%;
+}
+
+.forgot-password {
+    text-align: left;
+    transform: translateY(-50%);
+    font-size: 0.9em;
+    font-style: italic;
+    color: #ffffff;
+    text-decoration: none;
 }
 
 footer {

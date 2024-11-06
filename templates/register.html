@@ -1,6 +1,31 @@
 {% extends "base.html" %}
 
-{% block title %} courses {% endblock %}
+{% block title %}
+Register
+{% endblock %}
 
 {% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-4">
+            <div class="login-box bg-dark">
+                <h2 style="text-align: center;">Sign up</h2>
+                <form method="POST">
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required class="form-control" placeholder="Enter email">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <a href="#" class="float-right" style="font-size: 0.9em; font-style: italic;">Forgot Password?</a>
+                        <input type="password" id="password" name="password" required class="form-control" placeholder="Enter password">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Login</button>
+                    <br>
+                    <p style="text-align: center;">Don't have an account? <i><a href="/register">Sign up now</a>.</i></p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

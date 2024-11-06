@@ -12,17 +12,18 @@ Register
                 <h2 style="text-align: center;">Sign up</h2>
                 <form method="POST">
                     <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" required class="form-control" placeholder="Enter username">
+                    </div>
+                    <div class="form-group">
                         <label for="email">Email Address</label>
                         <input type="email" id="email" name="email" required class="form-control" placeholder="Enter email">
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <a href="#" class="float-right" style="font-size: 0.9em; font-style: italic;">Forgot Password?</a>
                         <input type="password" id="password" name="password" required class="form-control" placeholder="Enter password">
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block">Login</button>
-                    <br>
-                    <p style="text-align: center;">Don't have an account? <i><a href="/register">Sign up now</a>.</i></p>
+                    <button type="submit" class="btn btn-primary btn-block">Sign up</button>
                 </form>
             </div>
         </div>

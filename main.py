@@ -99,5 +99,5 @@ def account():
     return render_template('account.html', is_logged_in=is_logged_in)
 
 if __name__ == '__main__':
-    init_db() #Initialize the database
+    init_db()
     app.run(debug=True)

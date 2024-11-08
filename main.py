@@ -33,10 +33,18 @@ def register():
         email = request.form['email']
         password = request.form['password']
 
-        hashed_password = generate_password_hash(password)
-
         conn = get_db_connection()
         cursor = conn.cursor()
+        
+        cursor.execute('SELECT * FROM users WHERE email = ?', (email,))
+        existing_user = cursor.fetchone()
+        
+        if existing_user:
+            flash('Email already registered. Please use a different email or log in.', 'danger')
+            close_db_connection(conn)
+            return redirect(url_for('register'))
+
+        hashed_password = generate_password_hash(password)
         cursor.execute('INSERT INTO users (full_name, email, password) VALUES (?, ?, ?)',
                        (full_name, email, hashed_password))
         conn.commit()
@@ -44,6 +52,7 @@ def register():
 
         flash('You are now registered and can log in', 'success')
         return redirect(url_for('login'))
+        
     return render_template('register.html', is_logged_in=is_logged_in)
 
 @app.route('/login', methods=['GET', 'POST'])

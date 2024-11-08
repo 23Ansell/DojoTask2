@@ -113,3 +113,13 @@ footer .list-inline-item a:hover {
     padding: 0;
     box-sizing: border-box;
 }
+
+
+.flash-message {
+    list-style-type: none;
+    margin-top: 10px;
+}
+
+.close {
+    color: black;
+}

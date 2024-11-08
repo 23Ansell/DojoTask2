@@ -29,7 +29,7 @@ def init_db(): #CHATGPT - Responsible for initializing the database
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
-        username = request.form['username']
+        full_name = request.form['name']
         email = request.form['email']
         password = request.form['password']
 
@@ -37,8 +37,8 @@ def register():
 
         conn = get_db_connection()
         cursor = conn.cursor()
-        cursor.execute('INSERT INTO users (username, email, password) VALUES (?, ?, ?)',
-                       (username, email, hashed_password))
+        cursor.execute('INSERT INTO users (full_name, email, password) VALUES (?, ?, ?)',
+                       (full_name, email, hashed_password))
         conn.commit()
         close_db_connection(conn)
 
@@ -60,7 +60,7 @@ def login():
 
         if user and check_password_hash(user['password'], password):
             session['user_id'] = user['id']
-            session['username'] = user['username']
+            session['full_name'] = user['full_name']
             flash('You are now logged in', 'success')
             return redirect(url_for('index'))
         else:

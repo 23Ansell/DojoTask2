@@ -123,3 +123,36 @@ footer .list-inline-item a:hover {
 .close {
     color: black;
 }
+
+.navbar .nav-link.dropdown-toggle {
+    background-color: transparent !important;
+    border: none !important;
+    color: #fff !important;
+    outline: none !important;
+}
+
+.navbar .nav-link.dropdown-toggle:hover,
+.navbar .nav-link.dropdown-toggle:focus {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff !important;
+}
+
+.navbar .nav-link.dropdown-toggle:focus {
+    box-shadow: none !important;
+}
+
+.navbar .dropdown-menu {
+    background-color: #343a40 !important;
+    border: none !important;
+    position: absolute !important;
+    top: 100% !important;
+}
+
+.navbar .dropdown-item {
+    color: #fff !important;
+}
+
+.navbar .dropdown-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff !important;
+}

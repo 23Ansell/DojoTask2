@@ -34,9 +34,17 @@
                         </li>
                     </div>
                 {% else %}
+                <div class="btn-group dropleft">
                     <li class="nav-item">
-                        <a class="nav-link" href="/login"><i class="fa-solid fa-user fa-2x" style="color: #ffffff;"></i></a>
+                        <a class="nav-link btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                        href="#"><i class="fa-solid fa-user fa-2x" style="color: #ffffff;"></i></a>
+
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-item" href="/login">Login</a>
+                            <a class="dropdown-item" href="/register">Register</a>
+                        </div>
                     </li>
+                </div>
                 {% endif %}
             </ul>
         </div>

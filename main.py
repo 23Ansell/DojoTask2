@@ -10,22 +10,24 @@ app.secret_key = uuid.uuid4().hex
 def is_logged_in():
     return 'user_id' in session
 
+def is_admin():
+    if is_logged_in():
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        cursor.execute('SELECT * FROM users WHERE id = ?', (session['user_id'],))
+        user = cursor.fetchone()
+        close_db_connection(conn)
+        return user['is_admin']
+    else:
+        pass
+
 def get_db_connection():
-    conn = sqlite3.connect('db.db')
+    conn = sqlite3.connect(r'pb_data\data.db')
     conn.row_factory = sqlite3.Row
     return conn
 
 def close_db_connection(conn):
     conn.close()
-
-def init_db(): #CHATGPT - Responsible for initializing the database
-    with app.app_context():
-        conn = get_db_connection()
-        with app.open_resource('database.sql', mode='r') as f:
-            conn.cursor().executescript(f.read())
-        conn.commit()
-        print("done")
-        close_db_connection(conn)
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -54,7 +56,7 @@ def register():
         flash('You are now registered and can log in', 'success')
         return redirect(url_for('login'))
         
-    return render_template('register.html', is_logged_in=is_logged_in)
+    return render_template('register.html', is_logged_in=is_logged_in, is_admin=is_admin)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -76,7 +78,7 @@ def login():
         else:
             flash('Login unsuccessful. Please check email and password', 'danger')
             return redirect(url_for('login'))
-    return render_template('login.html', is_logged_in=is_logged_in)
+    return render_template('login.html', is_logged_in=is_logged_in, is_admin=is_admin)
 
 @app.route('/logout')
 def logout():
@@ -86,28 +88,31 @@ def logout():
 
 @app.route('/')
 def index():
-    return render_template('index.html', is_logged_in=is_logged_in)
+    return render_template('index.html', is_logged_in=is_logged_in, is_admin=is_admin)
 
 @app.route('/about')
 def about():
-    return render_template('about.html', is_logged_in=is_logged_in)
+    return render_template('about.html', is_logged_in=is_logged_in, is_admin=is_admin)
 
 @app.route('/booking')
 def booking():
-    return render_template('booking.html', is_logged_in=is_logged_in)
+    return render_template('booking.html', is_logged_in=is_logged_in, is_admin=is_admin)
 
 @app.route('/instructors')
 def instructors():
-    return render_template('instructors.html', is_logged_in=is_logged_in)
+    return render_template('instructors.html', is_logged_in=is_logged_in, is_admin=is_admin)
 
 @app.route('/courses')
 def courses():
-    return render_template('courses.html', is_logged_in=is_logged_in)
+    return render_template('courses.html', is_logged_in=is_logged_in, is_admin=is_admin)
 
 @app.route('/account')
 def account():
-    return render_template('account.html', is_logged_in=is_logged_in)
+    return render_template('account.html', is_logged_in=is_logged_in, is_admin=is_admin)
+
+@app.route('/adminpanel')
+def adminpanel():
+    return render_template('adminpanel.html', is_logged_in=is_logged_in, is_admin=is_admin)
 
 if __name__ == '__main__':
-    init_db()
     app.run(debug=True)

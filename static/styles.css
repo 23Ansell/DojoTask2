@@ -156,3 +156,10 @@ footer .list-inline-item a:hover {
     background-color: rgba(255, 255, 255, 0.1);
     color: #fff !important;
 }
+
+.instructor-box {
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 150px;
+}

@@ -16,7 +16,7 @@ def is_admin():
         cursor = conn.cursor()
         cursor.execute('SELECT * FROM users WHERE id = ?', (session['user_id'],))
         user = cursor.fetchone()
-        close_db_connection(conn)
+        conn.close()
         return user['is_admin']
     else:
         pass
@@ -25,9 +25,6 @@ def get_db_connection():
     conn = sqlite3.connect(r'pb_data\data.db')
     conn.row_factory = sqlite3.Row
     return conn
-
-def close_db_connection(conn):
-    conn.close()
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -44,14 +41,14 @@ def register():
         
         if existing_user:
             flash('Email already registered. Please use a different email or log in.', 'danger')
-            close_db_connection(conn)
+            conn.close()
             return redirect(url_for('register'))
 
         hashed_password = generate_password_hash(password)
         cursor.execute('INSERT INTO users (full_name, email, password) VALUES (?, ?, ?)',
                        (full_name, email, hashed_password))
         conn.commit()
-        close_db_connection(conn)
+        conn.close()
 
         flash('You are now registered and can log in', 'success')
         return redirect(url_for('login'))
@@ -68,7 +65,7 @@ def login():
         cursor = conn.cursor()
         cursor.execute('SELECT * FROM users WHERE email = ?', (email,))
         user = cursor.fetchone()
-        close_db_connection(conn)
+        conn.close()
 
         if user and check_password_hash(user['password'], password):
             session['user_id'] = user['id']
@@ -100,7 +97,10 @@ def booking():
 
 @app.route('/instructors')
 def instructors():
-    return render_template('instructors.html', is_logged_in=is_logged_in, is_admin=is_admin)
+    conn = get_db_connection()
+    instructors = conn.execute('SELECT * FROM instructors').fetchall()
+    conn.close()
+    return render_template('instructors.html', is_logged_in=is_logged_in, is_admin=is_admin, instructors=instructors)
 
 @app.route('/courses')
 def courses():

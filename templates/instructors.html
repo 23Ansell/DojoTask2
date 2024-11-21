@@ -4,17 +4,17 @@
 
 {% block content %}
 {% for instructor in instructors %}
-    <div class="container mt-5">
-        <div class="row justify-content-left">
-            <div class="col-md-6 col-lg-4">
-                <div class="instructor-box bg-dark">
-                    <img src="http://localhost:8090/api/files/instructors/{{ instructor['id'] }}/{{ instructor['drip'] }}" 
-                        alt="{{ instructor['name'] }}" 
-                        style="width: 100%;">
-                    <h2 style="text-align: center;">{{ instructor['name'] }}</h2>
-                </div>
+<div class="container mt-5">
+    <div class="row justify-content-left">
+        <div class="col-md-6 col-lg-4">
+            <div class="instructor-box bg-dark">
+                <img src="http://localhost:8090/api/files/instructors/{{ instructor['id'] }}/{{ instructor['drip'] }}" 
+                    alt="{{ instructor['name'] }}" 
+                    style="width: 100%;">
+                <h2 style="text-align: center;">{{ instructor['name'] }}</h2>
             </div>
         </div>
     </div>
+</div>
 {% endfor %}
 {% endblock %}

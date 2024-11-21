@@ -114,5 +114,10 @@ def account():
 def adminpanel():
     return render_template('adminpanel.html', is_logged_in=is_logged_in, is_admin=is_admin)
 
+@app.route('/forgotpassword')
+def forgot_password():
+    flash('That sucks!!!', 'danger')
+    return redirect (url_for('login'))
+
 if __name__ == '__main__':
     app.run(debug=True)

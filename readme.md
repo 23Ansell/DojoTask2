@@ -26,11 +26,15 @@ It will then ask you to login, the details are:
 
 ### Dependencies
 - [Python](https://www.python.org/downloads/)
+- Browser
 
 ### System Requirements
 - Any CPU
 - 1MB RAM
 - Windows XP
 - Bonzi Buddy
-- Browser
 - WannaCry
+- MyDoom
+- ILOVEYOU
+- Youareanidiot
+- 73even

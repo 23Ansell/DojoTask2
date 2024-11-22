@@ -30,4 +30,7 @@ It will then ask you to login, the details are:
 ### System Requirements
 - Any CPU
 - 1MB RAM
- 
+- Windows XP
+- Bonzi Buddy
+- Browser
+- WannaCry

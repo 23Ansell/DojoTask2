@@ -4,6 +4,7 @@
 - Login
 - Register
 - Logout
+- About page
 
 ### Features In Development
 - Forgot Password

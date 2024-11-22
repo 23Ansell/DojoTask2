@@ -1,6 +1,18 @@
 {% extends "base.html" %}
 
 {% block title %} courses {% endblock %}
-
 {% block content %}
+{% for events in events %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-4">
+            <div class="booking-box bg-dark">
+                <h2 style="text-align: center;">{{ events['name'] }}</h2>
+                
+                <button type="submit" class="btn btn-primary btn-block">Book</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
 {% endblock %}

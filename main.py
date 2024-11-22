@@ -93,7 +93,14 @@ def about():
 
 @app.route('/booking')
 def booking():
-    return render_template('booking.html', is_logged_in=is_logged_in, is_admin=is_admin)
+
+    conn = get_db_connection()
+    cursor = conn.cursor()
+
+    cursor.execute('SELECT * FROM events')
+    events = cursor.fetchall()
+
+    return render_template('booking.html', is_logged_in=is_logged_in, is_admin=is_admin, events=events)
 
 @app.route('/courses')
 def courses():

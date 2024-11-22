@@ -2,12 +2,13 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    margin: 0;
+    padding-bottom: 60px; /* Ensures there’s space for the footer */
 }
 
 main {
     flex: 1;
 }
-
 .login-box {
     padding: 20px;
     border-radius: 8px;
@@ -67,12 +68,16 @@ main {
 }
 
 footer {
-    position: fixed;
+    position: absolute; /* Sticks it to the bottom */
     bottom: 0;
     left: 0;
     right: 0;
     width: 100%;
+    background-color: #343a40;
     z-index: 999;
+    padding: 20px;
+    color: white;
+    text-align: center;
 }
 
 footer .container {
@@ -193,9 +198,66 @@ footer .list-inline-item a:hover {
     text-decoration: underline;
 }
 
+.booking-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    margin: 20px auto;
+}
+
 .booking-box {
+    flex: 1 1 calc(50% - 20px);
+    max-width: calc(50% - 20px);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-top: 150px; 
+    background-color: #212529;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 200px; /* Minimum height */
+    height: auto; /* Allows it to grow if content exceeds */
+}
+
+.booking-box h2 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.booking-box p {
+    color: #ccc;
+}
+
+.booking-box .btn {
+    margin-top: 20px;
+}
+
+.separator-line {
+    height: 2px;
+    width: 100%;
+    background-color: #ffffff;
+    margin: 10px 0;
+}
+
+@media (max-width: 768px) {
+    .booking-box {
+        flex: 1 1 100%; /* Full width on smaller screens */
+        max-width: 100%;
+    }
+}
+
+.info-details {
+    margin-top: 10px;
+}
+
+.info-details p {
+    margin: 5px 0;
+    color: #ccc;
+}
+
+.container {
+    max-width: 1200px; /* Increases the container's width */
+    padding: 0 20px;
 }

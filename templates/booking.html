@@ -1,18 +1,21 @@
 {% extends "base.html" %}
 
-{% block title %} courses {% endblock %}
+{% block title %}
+Booking
+{% endblock %}
+
 {% block content %}
-{% for events in events %}
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-6 col-lg-4">
-            <div class="booking-box bg-dark">
-                <h2 style="text-align: center;">{{ events['name'] }}</h2>
-                
-                <button type="submit" class="btn btn-primary btn-block">Book</button>
-            </div>
+<div class="container booking-container bg-black">
+    {% for events in events %}
+    <div class="booking-box">
+        <h2 class="event-name">{{ events['name'] }}</h2>
+        <div class="info-details mt-3">
+            <p><strong>Date:</strong> {{ events['date'] }}</p>
+            <p><strong>Participants:</strong> {{ events['participants'] }}/{{ events['max_participants']}}</p>
+            <p><strong>Instructor:</strong> {{ events['instructor'] }}</p>
         </div>
+        <button type="submit" class="btn btn-primary btn-block mt-3">Book</button>
     </div>
+    {% endfor %}
 </div>
-{% endfor %}
 {% endblock %}

@@ -163,3 +163,32 @@ footer .list-inline-item a:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-top: 150px;
 }
+
+.about-container {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #2c3e50;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: white;
+}
+
+.map-container, .info-container {
+    height: 450px; /* Matches the iframe's height */
+}
+
+.info-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    color: #ffffff;
+}
+
+.info-container a {
+    text-decoration: none;
+}
+
+.info-container a:hover {
+    text-decoration: underline;
+}

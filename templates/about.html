@@ -1,6 +1,28 @@
 {% extends "base.html" %}
 
-{% block title %} courses {% endblock %}
+{% block title %}About Us{% endblock %}
 
 {% block content %}
+<div class="container about-container bg-dark">
+    <div class="row">
+        <div class="col-md-6 map-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2445.1490803960282!2d0.11876907666201461!3d52.2043382719802!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8710c07899a87%3A0xd98d392d991f967f!2sRaspberry%20Pi!5e0!3m2!1sen!2suk!4v1732267711673!5m2!1sen!2suk" 
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+
+        <div class="col-md-6 info-container">
+            <h2>About Coder Dojo</h2>
+            <p>The Raspberry Pi Foundation is a UK-based charity that aims to enable people of all ages to explore computing and develop digital skills. They are headquartered in Cambridge, England, and have made a significant impact with their affordable Raspberry Pi computers, which are used in education and industry worldwide.</p>
+            <p>The foundation's mission is to put the power of computing into the hands of people all over the globe and help them harness it to shape a better future.</p>
+            <p>For more details, visit their official website: <a href="https://www.raspberrypi.org/" target="_blank">raspberrypi.org</a>.</p>
+        </div>
+    </div>
+</div>
 {% endblock %}

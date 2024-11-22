@@ -1,11 +1,11 @@
 # Coder Dojo
 
-This program has the following features:
+### Working Features
 - Login
 - Register
 - Logout
 
-The following features are in development:
+### Features In Development
 - Forgot Password
 - Booking
 - Instructor Page
@@ -14,6 +14,7 @@ The following features are in development:
 - Admin Panel
 - Accounts Page
 
+### How to run the code
 To run the code run the python file and ctrl click the link that it gives in the terminal.
 To view the database open a new terminal and enter the following:
 '.\pocketbase serve' and ctrl click the Admin UI
@@ -22,5 +23,10 @@ It will then ask you to login, the details are:
 - Email: test@test.com
 - Password: testtest123
 
-The dependencies to run the code would be:
-- Download Python
+### Dependencies
+- [Python](https://www.python.org/downloads/)
+
+### System Requirements
+- Any CPU
+- 1MB RAM
+ 

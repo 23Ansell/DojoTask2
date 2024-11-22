@@ -95,13 +95,6 @@ def about():
 def booking():
     return render_template('booking.html', is_logged_in=is_logged_in, is_admin=is_admin)
 
-@app.route('/instructors')
-def instructors():
-    conn = get_db_connection()
-    instructors = conn.execute('SELECT * FROM instructors').fetchall()
-    conn.close()
-    return render_template('instructors.html', is_logged_in=is_logged_in, is_admin=is_admin, instructors=instructors)
-
 @app.route('/courses')
 def courses():
     return render_template('courses.html', is_logged_in=is_logged_in, is_admin=is_admin)

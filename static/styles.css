@@ -212,7 +212,6 @@ footer .list-inline-item a:hover {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: #212529;
     color: white;
     display: flex;
     flex-direction: column;

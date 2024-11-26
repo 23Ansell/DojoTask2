@@ -113,7 +113,7 @@ footer .list-inline-item a:hover {
 }
 
 * {
-    color: #fff !important;
+    color: #fff;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -126,7 +126,15 @@ footer .list-inline-item a:hover {
 }
 
 .close {
-    color: black;
+    color: #6c757d; /* Bootstrap's default gray color for close buttons */
+    opacity: 1; /* Ensures the color is fully visible */
+    font-size: 1.5rem; /* Optional: Adjust size */
+}
+
+.close:hover {
+    color: #495057; /* Darker gray on hover */
+    text-decoration: none; /* Removes underline on hover */
+    opacity: 0.8; /* Optional: Slight fade effect */
 }
 
 .navbar .nav-link.dropdown-toggle {
@@ -251,4 +259,14 @@ footer .list-inline-item a:hover {
 .container {
     max-width: 1200px;
     padding: 0 20px;
+}
+
+a {
+    color: #fff; /* White text */
+    text-decoration: none; /* Optional, to remove underlines */
+}
+
+a:hover {
+    color: #ccc; /* Optional: A slightly lighter color on hover */
+    text-decoration: underline; /* Optional: Add underline on hover */
 }

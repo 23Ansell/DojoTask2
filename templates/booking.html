@@ -6,13 +6,13 @@ Booking
 
 {% block content %}
 <div class="container booking-container">
-    {% for events in events %}
+    {% for event in events %}
     <div class="booking-box bg-dark">
-        <h2 class="event-name">{{ events['name'] }}</h2>
+        <h2 class="event-name">{{ event['name'] }}</h2>
         <div class="info-details mt-3">
-            <p><strong>Date:</strong> {{ events['date'] }}</p>
-            <p><strong>Participants:</strong> {{ events['participants'] }}/{{ events['max_participants'] }}</p>
-            <p><strong>Instructor:</strong> {{ events['instructor_id'] }}</p>
+            <p><strong>Date:</strong> {{ event['date'] }}</p>
+            <p><strong>Participants:</strong> {{ event['participants'] }}/{{ event['max_participants'] }}</p>
+            <p><strong>Instructor:</strong> {{ event['instructor_name'] }}</p>
         </div>
         <button type="submit" class="btn btn-primary btn-block mt-3">Book</button>
     </div>

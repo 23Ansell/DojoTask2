@@ -3,7 +3,7 @@ body {
     flex-direction: column;
     min-height: 100vh;
     margin: 0;
-    padding-bottom: 60px; /* Ensures there’s space for the footer */
+    padding-bottom: 60px;
 }
 
 main {
@@ -132,9 +132,9 @@ footer .list-inline-item a:hover {
 }
 
 .close:hover {
-    color: #495057; /* Darker gray on hover */
-    text-decoration: none; /* Removes underline on hover */
-    opacity: 0.8; /* Optional: Slight fade effect */
+    color: #495057;
+    text-decoration: none;
+    opacity: 0.8;
 }
 
 .navbar .nav-link.dropdown-toggle {
@@ -262,11 +262,11 @@ footer .list-inline-item a:hover {
 }
 
 a {
-    color: #fff; /* White text */
-    text-decoration: none; /* Optional, to remove underlines */
+    color: #fff;
+    text-decoration: none;
 }
 
 a:hover {
-    color: #ccc; /* Optional: A slightly lighter color on hover */
-    text-decoration: underline; /* Optional: Add underline on hover */
+    color: #ccc;
+    text-decoration: underline;
 }

@@ -128,7 +128,7 @@ footer .list-inline-item a:hover {
 .close {
     color: #6c757d;
     opacity: 1;
-    font-size: 1.5rem; /* Optional: Adjust size */
+    font-size: 1.5rem;
 }
 
 .close:hover {

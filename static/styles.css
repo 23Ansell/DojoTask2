@@ -162,24 +162,16 @@ footer .list-inline-item a:hover {
     color: #fff !important;
 }
 
-.instructor-box {
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-top: 150px;
-}
-
 .about-container {
     margin: 20px auto;
     padding: 20px;
-    background-color: #2c3e50;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     color: white;
 }
 
 .map-container, .info-container {
-    height: 450px; /* Matches the iframe's height */
+    height: 450px;
 }
 
 .info-container {
@@ -216,8 +208,8 @@ footer .list-inline-item a:hover {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 200px; /* Minimum height */
-    height: auto; /* Allows it to grow if content exceeds */
+    min-height: 200px;
+    height: auto;
 }
 
 .booking-box h2 {
@@ -242,7 +234,7 @@ footer .list-inline-item a:hover {
 
 @media (max-width: 768px) {
     .booking-box {
-        flex: 1 1 100%; /* Full width on smaller screens */
+        flex: 1 1 100%;
         max-width: 100%;
     }
 }
@@ -257,6 +249,6 @@ footer .list-inline-item a:hover {
 }
 
 .container {
-    max-width: 1200px; /* Increases the container's width */
+    max-width: 1200px;
     padding: 0 20px;
 }

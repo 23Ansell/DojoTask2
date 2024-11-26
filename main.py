@@ -98,6 +98,7 @@ def booking():
     cursor = conn.cursor()
 
     cursor.execute('SELECT events.*, instructors.name FROM events JOIN instructors ON events.instructor_id = instructors.id')
+    cursor.execute('SELECT * FROM events')
     events = cursor.fetchall()
 
     return render_template('booking.html', is_logged_in=is_logged_in, is_admin=is_admin, events=events)

@@ -4,18 +4,36 @@
 Booking
 {% endblock %}
 
-{% block content %}
+{% block content %} 
 <div class="container booking-container">
-    {% for event in events %}
-    <div class="booking-box bg-dark">
-        <h2 class="event-name">{{ event['name'] }}</h2>
-        <div class="info-details mt-3">
-            <p><strong>Date:</strong> {{ event['date'] }}</p>
-            <p><strong>Participants:</strong> {{ event['participants'] }}/{{ event['max_participants'] }}</p>
-            <p><strong>Instructor:</strong> {{ event['instructor_name'] }}</p>
+    {% if events is defined %}
+        {% if events|length > 0 %}
+            {% for event in events %}
+            <div class="booking-box bg-dark">
+                <h2 class="event-name">{{ event['name'] }}</h2>
+                <div class="info-details mt-3">
+                    <p><strong>Date:</strong> {{ event['date'] }}</p>
+                    <p><strong>Max Participants:</strong> {{ event['max_participants'] }}</p>
+                    <p><strong>Instructor:</strong> {{ event['assigned_instructor'] }}</p>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block mt-3">Book</button>
+            </div>
+            {% endfor %}
+        {% else %}
+            <div class="alert alert-info alert-dismissible show flash-message" role="alert">
+                No events found in the database.
+                <button type="button" class="close text-muted" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {% endif %}
+    {% else %}
+        <div class="alert alert-danger alert-dismissible show flash-message" role="alert">
+            Events data not passed to template.
+            <button type="button" class="close text-muted" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
         </div>
-        <button type="submit" class="btn btn-primary btn-block mt-3">Book</button>
-    </div>
-    {% endfor %}
+    {% endif %}
 </div>
 {% endblock %}

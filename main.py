@@ -96,11 +96,7 @@ def booking():
     conn = get_db_connection()
     cursor = conn.cursor()
 
-    cursor.execute('''
-        SELECT events.name, events.date, events.max_participants, instructors.name as instructor_name
-        FROM events
-        LEFT JOIN instructors ON events.instructor_id = instructors.id
-    ''')
+    cursor.execute('SELECT * FROM events')
     events = cursor.fetchall()
     conn.close()
 

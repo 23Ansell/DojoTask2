@@ -13,10 +13,14 @@ Booking
                 <h2 class="event-name">{{ event['name'] }}</h2>
                 <div class="info-details mt-3">
                     <p><strong>Date:</strong> {{ event['date'] }}</p>
-                    <p><strong>Max Participants:</strong> {{ event['max_participants'] }}</p>
+                    <p><strong>Participants:</strong> {{ event['participants'] }}/{{ event['max_participants'] }}</p>
                     <p><strong>Instructor:</strong> {{ event['assigned_instructor'] }}</p>
                 </div>
-                <button type="submit" class="btn btn-primary btn-block mt-3">Book</button>
+                {% if event['participants'] >= event['max_participants'] %}
+                    <button type="submit" class="btn btn-primary btn-block mt-3">Join Waiting List</button>
+                {% else %}
+                    <button type="submit" class="btn btn-primary btn-block mt-3">Book</button>
+                {% endif %}
             </div>
             {% endfor %}
         {% else %}

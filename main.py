@@ -3,6 +3,7 @@ from werkzeug.security import generate_password_hash, check_password_hash # CHAT
 from pocketbase import PocketBase
 import sqlite3
 import uuid
+from datetime import datetime
 
 app = Flask(__name__)
 app.secret_key = uuid.uuid4().hex
@@ -100,7 +101,13 @@ def booking():
     events = cursor.fetchall()
     conn.close()
 
-    return render_template('booking.html', is_logged_in=is_logged_in, is_admin=is_admin, events=events)
+    e = []
+    for event in events:
+        event_dict = dict(event)
+        event_dict['date'] = datetime.strptime(event['date'], "%Y-%m-%d %H:%M:%S.000Z").strftime("%d/%m/%Y %H:%M")
+        e.append(event_dict)
+
+    return render_template('booking.html', is_logged_in=is_logged_in, is_admin=is_admin, events=e)
 
 @app.route('/courses')
 def courses():

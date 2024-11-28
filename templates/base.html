@@ -16,6 +16,9 @@
                 <a class="nav-item nav-link" href="/about">About Us</a>
                 <a class="nav-item nav-link" href="/booking">Booking</a>
                 <a class="nav-item nav-link" href="/courses">Courses</a>
+                {% if is_logged_in() %}
+                    <a class="nav-item nav-link" href="/dashboard">Dashboard</a>
+                {% endif %}
             </div>
         </div>
         <div class="navbar-collapse collapse order-3 dual-collapse2">

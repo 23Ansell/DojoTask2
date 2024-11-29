@@ -8,12 +8,13 @@ A fictional coding club for children 7 - 17 years old sponsored by the Raspberry
 - Register
 - Logout
 - About page
+- Booking
+- Waiting List 
 
 ### Features In Development
 
 - Forgot Password
-- Booking
-- Instructor Page
+- Dashboard
 - Home page
 - Courses Page
 - Admin Panel

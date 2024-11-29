@@ -128,15 +128,22 @@ footer .list-inline-item a:hover {
 }
 
 .close {
-    color: #6c757d;
     opacity: 1;
     font-size: 1.5rem;
+    color: inherit;
+    border: none;
+    background: none;
 }
 
 .close:hover {
-    color: #495057;
-    text-decoration: none;
     opacity: 0.8;
+    text-decoration: none;
+    color: inherit;
+}
+
+.close:focus {
+    outline: none;
+    box-shadow: none;
 }
 
 .navbar .nav-link.dropdown-toggle {

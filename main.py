@@ -139,7 +139,7 @@ def waiting_list():
         user_id = session['user_id']
         conn = get_db_connection()
         cursor = conn.cursor()
-        cursor.execute('INSERT INTO bookings (event_id, user_id, registration_date, status) VALUES (?, ?, ?, ?)',
+        cursor.execute('INSERT INTO waiting_list (event_id, user_id, registration_date, status) VALUES (?, ?, ?, ?)',
                        (event_id, user_id, datetime.now(), 'waiting'))
         conn.commit()
         conn.close()

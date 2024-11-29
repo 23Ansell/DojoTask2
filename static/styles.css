@@ -1,3 +1,4 @@
+/* styles */
 body {
     display: flex;
     flex-direction: column;
@@ -9,6 +10,7 @@ body {
 main {
     flex: 1;
 }
+
 .login-box {
     padding: 20px;
     border-radius: 8px;

@@ -109,6 +109,43 @@ def booking():
 
     return render_template('booking.html', is_logged_in=is_logged_in, is_admin=is_admin, events=e)
 
+@app.route('/book', methods=['POST'])
+def book():
+    if not is_logged_in():
+        flash('Please log in to book the event', 'danger')
+        return redirect(url_for('login'))
+
+    if request.method == 'POST':
+        event_id = request.form['event_id']
+        user_id = session['user_id']
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        cursor.execute('INSERT INTO bookings (event_id, user_id, registration_date, status) VALUES (?, ?, ?, ?)',
+                       (event_id, user_id, datetime.now(), 'pending'))
+        cursor.execute('UPDATE events SET participants = participants + 1 WHERE id = ?', (event_id,))
+        conn.commit()
+        conn.close()
+        flash('You have successfully booked the event', 'success')
+        return redirect(url_for('booking'))
+    
+@app.route('/waiting_list', methods=['POST'])
+def waiting_list():
+    if not is_logged_in():
+        flash('Please log in to join the waiting list', 'danger')
+        return redirect(url_for('login'))
+
+    if request.method == 'POST':
+        event_id = request.form['event_id']
+        user_id = session['user_id']
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        cursor.execute('INSERT INTO bookings (event_id, user_id, registration_date, status) VALUES (?, ?, ?, ?)',
+                       (event_id, user_id, datetime.now(), 'waiting'))
+        conn.commit()
+        conn.close()
+        flash('You have successfully joined the waiting list', 'success')
+        return redirect(url_for('booking'))
+
 @app.route('/courses')
 def courses():
     return render_template('courses.html', is_logged_in=is_logged_in, is_admin=is_admin)

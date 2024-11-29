@@ -17,9 +17,15 @@ Booking
                     <p><strong>Instructor:</strong> {{ event['assigned_instructor'] }}</p>
                 </div>
                 {% if event['participants'] >= event['max_participants'] %}
-                    <button type="submit" class="btn btn-primary btn-block mt-3">Join Waiting List</button>
+                    <form action="{{ url_for('waiting_list') }}" method="POST">
+                        <input type="hidden" name="event_id" value="{{ event['id'] }}">
+                        <button type="submit" class="btn btn-primary btn-block mt-3">Join Waiting List</button>
+                    </form>
                 {% else %}
-                    <button type="submit" class="btn btn-primary btn-block mt-3">Book</button>
+                    <form action="{{ url_for('book') }}" method="POST">
+                        <input type="hidden" name="event_id" value="{{ event['id'] }}">
+                        <button type="submit" class="btn btn-primary btn-block mt-3">Book</button>
+                    </form>
                 {% endif %}
             </div>
             {% endfor %}

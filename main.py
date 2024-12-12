@@ -112,7 +112,7 @@ def booking():
 
     return render_template('booking.html', is_logged_in=is_logged_in, is_admin=is_admin, events=e)
 
-@app.route('/book', methods=['POST'])
+@app.route('/book', methods=['GET', 'POST'])
 def book():
     if not is_logged_in():
         flash('Please log in to book the event', 'danger')
@@ -131,7 +131,7 @@ def book():
         flash('You have successfully booked the event', 'success')
         return redirect(url_for('booking'))
     
-@app.route('/waiting_list', methods=['POST'])
+@app.route('/waiting_list', methods=['GET', 'POST'])
 def waiting_list():
     if not is_logged_in():
         flash('Please log in to join the waiting list', 'danger')

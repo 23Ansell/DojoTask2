@@ -2,6 +2,8 @@ from flask import Flask, render_template, request, redirect, url_for, session, f
 from werkzeug.security import generate_password_hash, check_password_hash # CHATGPT - Responsible for hashing passwords
 import sqlite3
 import uuid
+import os
+import ssl
 from datetime import datetime
 
 app = Flask(__name__)
@@ -22,7 +24,9 @@ def is_admin():
         pass
 
 def get_db_connection():
-    conn = sqlite3.connect(r'pb_data\data.db')
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    db_path = os.path.join(BASE_DIR, 'pb_data', 'data.db')
+    conn = sqlite3.connect(db_path)
     conn.row_factory = sqlite3.Row
     return conn
 
@@ -163,4 +167,6 @@ def forgot_password():
     return redirect (url_for('login'))
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
+    context.load_cert_chain('certs/fullchain.pem', 'certs/privkey.pem')
+    app.run(host='0.0.0.0', port=5141, debug=True, ssl_context=context)

@@ -131,7 +131,7 @@ def book():
         flash('You have successfully booked the event', 'success')
         return redirect(url_for('booking'))
     
-@app.route('/waiting_list', methods=['GET', 'POST'])
+@app.route('/waiting_list', methods=['POST'])
 def waiting_list():
     if not is_logged_in():
         flash('Please log in to join the waiting list', 'danger')

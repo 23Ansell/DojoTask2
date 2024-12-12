@@ -138,17 +138,22 @@ def waiting_list():
         return redirect(url_for('login'))
 
     if request.method == 'POST':
-        event_id = request.form['event_id']
+        event_id = request.form.get('event_id')
+        if not event_id:
+            flash('Invalid request - missing event ID', 'danger')
+            return redirect(url_for('booking'))
+
         user_id = session['user_id']
         conn = get_db_connection()
         cursor = conn.cursor()
         cursor.execute('INSERT INTO waiting_list (event_id, user_id, registration_date, status) VALUES (?, ?, ?, ?)',
-                       (event_id, user_id, datetime.now(), 'waiting'))
+                      (event_id, user_id, datetime.now(), 'waiting'))
         conn.commit()
         conn.close()
         flash('You have successfully joined the waiting list', 'success')
         return redirect(url_for('booking'))
     
+    # Handle GET requests
     return redirect(url_for('booking'))
 
 @app.route('/courses')

@@ -148,6 +148,8 @@ def waiting_list():
         conn.close()
         flash('You have successfully joined the waiting list', 'success')
         return redirect(url_for('booking'))
+    
+    return redirect(url_for('booking'))
 
 @app.route('/courses')
 def courses():
@@ -165,6 +167,10 @@ def adminpanel():
 def forgot_password():
     flash('That sucks!!!', 'danger')
     return redirect (url_for('login'))
+
+@app.route('/dashboard')
+def dashboard():
+    return render_template('dashboard.html', is_logged_in=is_logged_in, is_admin=is_admin)
 
 if __name__ == '__main__':
     context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)

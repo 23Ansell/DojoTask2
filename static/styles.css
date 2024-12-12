@@ -69,6 +69,39 @@ main {
     text-decoration: none;
 }
 
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: #343a40;
+    z-index: 999;
+    padding: 20px;
+    color: white;
+    text-align: center;
+}
+
+footer .container {
+    width: 100%;
+    max-width: none;
+}
+
+footer .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer .list-inline-item a {
+    color: white;
+    text-decoration: none;
+}
+
+footer .list-inline-item a:hover {
+    text-decoration: underline;
+}
+
 .navbar-nav .nav-link {
     color: #fff !important;
 }
@@ -244,38 +277,5 @@ a {
 
 a:hover {
     color: #ccc;
-    text-decoration: underline;
-}
-
-footer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    background-color: #343a40;
-    z-index: 999;
-    padding: 20px;
-    color: white;
-    text-align: center;
-}
-
-footer .container {
-    width: 100%;
-    max-width: none;
-}
-
-footer .row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-footer .list-inline-item a {
-    color: white;
-    text-decoration: none;
-}
-
-footer .list-inline-item a:hover {
     text-decoration: underline;
 }

@@ -156,6 +156,12 @@ def waiting_list():
     # Handle GET requests
     return redirect(url_for('booking'))
 
+@app.route('/waiting_list', methods=['GET'])
+def view_waiting_list():
+    if not is_logged_in():
+        return redirect(url_for('login'))
+    return redirect(url_for('booking'))
+
 @app.route('/courses')
 def courses():
     return render_template('courses.html', is_logged_in=is_logged_in, is_admin=is_admin)

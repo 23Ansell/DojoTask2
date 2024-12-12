@@ -24,7 +24,10 @@ A fictional coding club for children 7 - 17 years old sponsored by the Raspberry
 
 To run the code run the python file and ctrl click the link that it gives in the terminal.
 To view the database open a new terminal and enter the following:
-'.\pocketbase serve' and ctrl click the Admin UI
+```bash
+.\pocketbase serve
+```
+and ctrl click the Admin UI.
 
 It will then ask you to login, the details are:
 - Email: test@test.com
@@ -34,7 +37,9 @@ It will then ask you to login, the details are:
 
 - [Python](https://www.python.org/downloads/)
 - Browser
-
+```bash
+pip install -r requirements.txt
+```
 ### System Requirements
 
 - Any CPU

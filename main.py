@@ -134,12 +134,10 @@ def book():
 @app.route('/waiting_list', methods=['POST'])
 def waiting_list():
     if not is_logged_in():
-        # Store event_id in session before redirecting
         session['pending_event_id'] = request.form.get('event_id')
         flash('Please log in to join the waiting list', 'danger')
         return redirect(url_for('login'))
 
-    # Get event_id either from form or session
     event_id = request.form.get('event_id') or session.pop('pending_event_id', None)
     if not event_id:
         flash('Invalid request - missing event ID', 'danger')
